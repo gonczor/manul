@@ -1,0 +1,13 @@
+# Python
+*.pyc
+venv
+
+# Database
+*.db
+
+# PyCharm
+.idea
+
+# JS
+*.min.js
+
