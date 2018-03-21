@@ -1,5 +1,5 @@
 import unittest
-from RESTful import create_app
+from main import create_app
 
 
 class TestCaseViews(unittest.TestCase):
