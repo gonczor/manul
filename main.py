@@ -13,7 +13,7 @@ def create_app():
     app = register_urls(app)
     api = Api(app)
     api.add_resource(HelloWorld, '/api/v1/hello')
-    return                                                                                                              app
+    return app
 
 
 if __name__ == '__main__':
