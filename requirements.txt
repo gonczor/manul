@@ -1,2 +1,4 @@
 flask==0.12.2
 flask-RESTFUL==0.3.6
+
+flake8
