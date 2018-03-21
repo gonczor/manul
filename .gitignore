@@ -11,3 +11,4 @@ venv
 # JS
 *.min.js
 
+.DS_Store
