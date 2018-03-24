@@ -4,7 +4,7 @@ import unittest
 from flask import Flask
 from flask_restful import Api
 
-from api.views import HelloWorld
+from api.views import ServerTime
 from urls import register_urls
 
 
@@ -12,7 +12,7 @@ def create_app():
     app = Flask(__name__)
     app = register_urls(app)
     api = Api(app)
-    api.add_resource(HelloWorld, '/api/v1/hello')
+    api.add_resource(ServerTime, '/api/v1/server-time/', endpoint='api_server_time')
     return app
 
 
