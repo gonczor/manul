@@ -31,4 +31,11 @@ $ python main.py test
 $ flake8 --config=.flake8 .
 ```
 
+## Structure
 
+* api - backend for REST api serving data,
+* app - core app for serving data for browsers, rendering templates and so on,
+* helpers - useful bash scripts,
+* static - css, js and coffeescripts,
+* templates - html templates used by Flask,
+* tests - backend unittests.
