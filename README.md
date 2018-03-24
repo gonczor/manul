@@ -10,8 +10,9 @@ This is technology demonstrator using Flask to create restful web service with A
 4. [Python virtualenv](http://www.pythonforbeginners.com/basics/how-to-use-python-virtualenv);
 5. [Tests using python unittest](https://docs.python.org/3/library/unittest.html);
 6. [Style checks using flake8](http://flake8.pycqa.org/en/latest/);
-7. Docker (planned);
-8. Karma frontend unittests (planned).
+7. [npm for installing local packages](https://www.npmjs.com/);
+8. Docker (planned);
+9. Karma frontend unittests (planned).
 
 
 ## Contributing
