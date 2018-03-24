@@ -4,5 +4,12 @@
 {% endblock %}
 
 {% block content %}
-    {{ text }}
+    {{ name_from_python }}
+    <div ng-app="testApp" ng-controller="timeController">
+        <p>
+            Current server time: <span ng-bind="timeSection"></span>
+        </p>
+        <p ng-model="name"></p>
+        <button ng-click="refreshTimeButton()">Click</button>
+    </div>
 {% endblock %}

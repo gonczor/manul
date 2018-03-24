@@ -1,0 +1,9 @@
+{
+  "name": "manul-frontend",
+  "version": "0.0.1",
+  "devDependencies": {
+    "grunt": "~1.0.0",
+    "grunt-contrib-coffee": "~2.0.0",
+    "grunt-contrib-watch": "~1.0.0"
+  }
+}

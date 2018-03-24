@@ -4,15 +4,15 @@ import unittest
 from flask import Flask
 from flask_restful import Api
 
-from api.views import HelloWorld
-from urls import register_urls
+from app.urls import register_urls as register_app_urls
+from api.urls import register_urls as register_api_urls
 
 
 def create_app():
     app = Flask(__name__)
-    app = register_urls(app)
     api = Api(app)
-    api.add_resource(HelloWorld, '/api/v1/hello')
+    register_app_urls(app)
+    register_api_urls(api)
     return app
 
 
