@@ -1,11 +1,15 @@
 FROM ubuntu:16.04
 
-RUN apt update && apt upgrade
-RUN apt install -y python3-pip
-RUN pip3 install --upgrade pip
-RUN pip3 install -r /app/requirements.txt
-
+RUN apt update && apt upgrade -y
+RUN apt install -y python3-pip python-virtualenv nodejs npm coffeescript
+RUN npm install -g grunt
 COPY . /app/
+WORKDIR /app/static
+RUN npm install
+WORKDIR /app
+RUN virtualenv venv -p python3
+RUN venv/bin/pip install --upgrade pip
+RUN venv/bin/pip install -r requirements.txt
 
 EXPOSE 5000
-CMD python3 /app/main.py 0.0.0.0:5000 &
+CMD venv/bin/python main.py 0.0.0.0:5000&
