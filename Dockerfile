@@ -7,9 +7,6 @@ COPY . /app/
 WORKDIR /app/static
 RUN npm install
 WORKDIR /app
-RUN virtualenv venv -p python3
-RUN venv/bin/pip install --upgrade pip
-RUN venv/bin/pip install -r requirements.txt
-
-EXPOSE 5000
-CMD venv/bin/python main.py 0.0.0.0:5000&
+RUN virtualenv /venv -p python3
+RUN /venv/bin/pip install --upgrade pip
+RUN /venv/bin/pip install -r requirements.txt

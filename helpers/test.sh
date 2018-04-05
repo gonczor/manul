@@ -1,3 +1,3 @@
-#!/usr/bin/env bash
+#!/bin/bash
 
-docker run
+docker-compose run --rm web app/venv/bin/python manage.py test $@
