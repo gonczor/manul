@@ -39,6 +39,7 @@ $ flake8 --config=.flake8 .
 
 * api - backend for REST api serving data,
 * app - core app for serving data for browsers, rendering templates and so on,
+* db - database handling stuff (setup, models, migrations etc.)
 * helpers - useful bash scripts,
 * static - css, js and coffeescripts,
 * templates - html templates used by Flask,
