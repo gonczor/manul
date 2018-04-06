@@ -20,7 +20,7 @@ def execute():
         print('Passwords do not match')
         exit(1)
 
-    admin = User(username=username, password=password)
+    admin = User(username=username, password=password, is_admin=True)
     db.session.add(admin)
     db.session.commit()
 
