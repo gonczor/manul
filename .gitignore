@@ -2,6 +2,9 @@
 *.pyc
 venv
 
+# Project secrets
+secret.py
+
 # Database
 *.db
 

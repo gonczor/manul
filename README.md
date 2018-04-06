@@ -17,15 +17,17 @@ This is technology demonstrator using Flask to create restful web service with A
 11. Karma frontend unittests (planned).
 
 
-## Contributing
+## Setup
 
 1. Clone repo `$ git clone git@github.com:gonczor/manul.git`;
 2. Install python virtual environment.
 3. Create python virtual environment using `$ virtualenv venv -p python3`;
 4. Download minified Angular and jQuery to `static/js` (you can use `get_js.sh` script for this);
 5. Go to `static` folder to install frontend dependencies. Run `$ npm install` to install dependencies listed in `package.json` and `$ npm install -g grunt`. To compile coffeescripts once run `grunt`, to enable file watcher which will introduce all changes for you run `grunt watch`. Remember that you have to be in `static` folder. JavaScripts themselves are not added to git, only coffeescripts.
-6. Introduce changes;
-7. Test changes (see testing section for more details);
+6. Before any changes, got to `setup` module and perform actions mentioned in `secret.py.txt`.
+7. Run `python main.py createdb` to create database (it should be named `manul.db` as custom names are currently not supported) and `python main.py createsuperuser` to create admin user.
+8. Introduce changes;
+9. Test changes (see testing section for more details);
 
 ## Testing
 
@@ -39,6 +41,7 @@ $ flake8 --config=.flake8 .
 
 * api - backend for REST api serving data,
 * app - core app for serving data for browsers, rendering templates and so on,
+* db - database handling stuff (setup, models, migrations etc.)
 * helpers - useful bash scripts,
 * static - css, js and coffeescripts,
 * templates - html templates used by Flask,
