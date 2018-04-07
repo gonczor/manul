@@ -4,12 +4,10 @@ from getpass import getpass
 from db import db
 from db.models import User
 from main import create_app
-from utils.hash import hash_password
+from utils.password import hash_password
 
 
 def execute():
-    create_app()
-
     username = input('Give username: ')
     password = getpass('Give password: ')
     password = hash_password(password)

@@ -7,3 +7,8 @@ class ServerTime(Resource):
     def get(self):
         time = datetime.datetime.now().strftime('%d-%m-%Y %H:%M:%S')
         return {'time': time}
+
+
+class Login(Resource):
+    def post(self):
+        return {}
