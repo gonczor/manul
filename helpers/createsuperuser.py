@@ -3,7 +3,6 @@ from getpass import getpass
 
 from db import db
 from db.models import User
-from main import create_app
 from utils.password import hash_password
 
 

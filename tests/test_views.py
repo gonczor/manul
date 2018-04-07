@@ -1,6 +1,7 @@
 from main import create_app
 from utils.tests import BaseTestCase
 
+
 class TestCaseViews(BaseTestCase):
     def setUp(self):
         super().setUp()
