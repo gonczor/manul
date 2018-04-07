@@ -1,5 +1,7 @@
 import datetime
+import json
 
+from flask import request
 from flask_restful import Resource
 
 
@@ -11,4 +13,5 @@ class ServerTime(Resource):
 
 class Login(Resource):
     def post(self):
-        return {}
+        login_data = json.loads(request.data)
+        return login_data

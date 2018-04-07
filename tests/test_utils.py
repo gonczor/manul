@@ -9,10 +9,7 @@ class PasswordCheckTestCase(BaseTestCase):
         super().setUp()
         self.username = 'user'
         self.password = 'pass'
-        self.user = User.create_user(
-            username=self.username,
-            password=self.password
-        )
+        self.user = User(username=self.username, password=self.password)
         db.session.add(self.user)
         db.session.commit()
 
