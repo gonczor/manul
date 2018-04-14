@@ -7,12 +7,13 @@ from flask_restful import Api
 from app.urls import register_urls as register_app_urls
 from api.urls import register_urls as register_api_urls
 
-from app.login import login_manager
 from commands import createsuperuser
 from db import db
 
 
 def create_app():
+    # Hack to create auth
+    import app.auth  # flake8: noqa
     # Create objects used in project
     app = Flask(__name__)
     api = Api(app)
@@ -25,7 +26,6 @@ def create_app():
     app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///manul.db'
     db.init_app(app)
     db.create_engine('sqlite:///manul.db')
-    login_manager.init_app(app)
 
     app.app_context().push()
     return app

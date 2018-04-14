@@ -10,6 +10,7 @@
             Current server time: <span ng-bind="timeSection"></span>
         </p>
         <p ng-model="name"></p>
+        <a href="{{ url_for('login') }}">LOGIN</a>
         <button ng-click="refreshTimeButton()">Click</button>
     </div>
 {% endblock %}

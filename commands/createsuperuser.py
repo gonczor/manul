@@ -3,15 +3,12 @@ from getpass import getpass
 
 from db import db
 from db.models import User
-from utils.password import hash_password
 
 
 def execute():
     username = input('Give username: ')
     password = getpass('Give password: ')
-    password = hash_password(password)
     password_confirmation = getpass('Confirm password: ')
-    password_confirmation = hash_password(password_confirmation)
 
     if password != password_confirmation:
         print('Passwords do not match')

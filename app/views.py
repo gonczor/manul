@@ -1,5 +1,5 @@
-from flask import render_template
-from flask_login import login_required
+from flask import render_template, redirect, url_for, request, abort
+from flask_login import login_required, logout_user
 
 
 def hello_world():
@@ -7,7 +7,15 @@ def hello_world():
 
 
 def login():
-    return render_template('login.html')
+    if request.method == 'GET':
+        return render_template('login.html')
+    else:
+        abort(400)
+
+
+def logout():
+    logout_user()
+    return redirect(url_for('hello_world'))
 
 
 @login_required

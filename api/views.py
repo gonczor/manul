@@ -1,8 +1,9 @@
 import datetime
-import json
 
-from flask import request
+from flask import g, jsonify
 from flask_restful import Resource
+
+from app.auth import auth
 
 
 class ServerTime(Resource):
@@ -11,7 +12,14 @@ class ServerTime(Resource):
         return {'time': time}
 
 
-class Login(Resource):
+class GetToken(Resource):
+    @auth.login_required
     def post(self):
-        login_data = json.loads(request.data)
-        return login_data
+        token = g.user.generate_token()
+        return jsonify({'token': token.decode('ascii')})
+
+
+class TestLogin(Resource):
+    @auth.login_required
+    def get(self):
+        return {'response': 'SUCCESS'}
