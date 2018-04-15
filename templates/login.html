@@ -1,2 +1,15 @@
 {% extends 'base.html' %}
 
+{% block additional_js %}
+    <script src="/static/js/login.js"></script>
+{% endblock %}
+
+{% block content %}
+    <div ng-app="loginApp" ng-controller="loginController">
+        <form ng-submit="submitLoginForm()">
+            <input type="text" ng-model="username">
+            <input type="password" ng-model="password">
+            <input type="submit">
+        </form>
+    </div>
+{% endblock %}

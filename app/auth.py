@@ -1,4 +1,6 @@
-from flask import g
+import json
+
+from flask import g, request
 from flask_httpauth import HTTPBasicAuth
 from flask_login import LoginManager
 
@@ -15,10 +17,12 @@ def load_user(username):
 
 
 @auth.verify_password
-def authenticate_user(token_or_username, password):
-    user = User.verify_token(token_or_username)
-    if user is None:
-        return check_user_password(token_or_username, password)
-    else:
+def authenticate_user():
+    data = json.loads(request.data)
+    token = data.get('token')
+    if token is not None:
+        user = User.verify_token(token)
         g.user = user
         return user
+    else:
+        return check_user_password(data['username'], data['password'])
