@@ -17,7 +17,7 @@ def load_user(username):
 
 
 @auth.verify_password
-def authenticate_user():
+def authenticate_user(*_):
     data = json.loads(request.data)
     token = data.get('token')
     if token is not None:
