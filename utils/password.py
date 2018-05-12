@@ -1,7 +1,5 @@
 from hashlib import sha1
 
-from flask import g
-
 from setup import secret_key
 
 
@@ -15,11 +13,16 @@ def hash_password(unhashed_password):
 
 
 def check_user_password(username, password):
+    """
+    Check if password matches one set for user. Performs hashing.
+    :param (str) username:
+    :param (str) password: unhashed password
+    :return (bool, User): True and user object if user has been found, False and None otherwise.
+    """
     from db.models import User
     password = hash_password(password)
     user = User.query.filter(User.username == username).first()
     if user and user.password == password:
-        g.user = user
-        return True
+        return True, user
     else:
-        return False
+        return False, None
