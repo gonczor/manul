@@ -4,7 +4,7 @@ python:
 install:
   - pip install -r requirements.txt
 before_script:
-  - mv setup/secret.py.txt setup/secret.py
+  - cp setup/secret.py.txt setup/secret.py
 script:
   - python main.py test
   - flake8 --config=.flake8 .
