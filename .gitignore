@@ -3,7 +3,7 @@
 venv
 
 # Project secrets
-secret.py
+setup/secret.py
 
 # Database
 *.db
