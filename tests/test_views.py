@@ -41,3 +41,13 @@ class LoginViewTestCase(BaseTestCase):
             url_for('login'), data={'username': self.admin_username, 'password': self.admin_password}
         )
         self.assertEqual(response.status_code, 200)
+
+    def test_non_admin_does_not_have_access_to_admin_panel(self):
+        """Authorized user who does not have is_admin set to True should not be able to gain access to admin panel."""
+        with self.client:
+            self.client.post(
+                url_for('login'), data={'username': self.username, 'password': self.password}
+            )
+            response = self.client.get(url_for('admin_panel'))
+            self.assertEqual(response.status_code, 403)
+            self.assertEqual(current_user, self.user)

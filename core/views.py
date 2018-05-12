@@ -1,6 +1,7 @@
 from flask import render_template, redirect, url_for, request, abort
 from flask_login import login_required, logout_user, login_user
 
+from core.auth import check_user_is_admin
 from utils.password import check_user_password
 
 
@@ -28,5 +29,6 @@ def logout():
 
 
 @login_required
+@check_user_is_admin
 def admin_panel():
     return render_template('admin_panel.html')
