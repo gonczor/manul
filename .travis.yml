@@ -8,6 +8,3 @@ before_script:
 script:
   - python main.py test
   - flake8 --config=.flake8 .
-branches:
-  only:
-   - master
