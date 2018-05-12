@@ -6,7 +6,7 @@ from db import db
 
 class BaseTestCase(TestCase):
     def setUp(self):
-        app = main.create_app()
+        app = main.create_app(test=True)
         app.testing = True
         app.app_context = app.test_request_context()
         app.app_context.push()

@@ -1,3 +1,4 @@
+import os
 import sys
 import unittest
 
@@ -13,7 +14,7 @@ from db import db
 import setup
 
 
-def create_app():
+def create_app(test=False):
     # Hack to create auth
     # Create objects used in project
     app = Flask(__name__)
@@ -25,10 +26,16 @@ def create_app():
     register_api_urls(api)
 
     # Set up used objects
-    app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///manul.db'
+    if test:
+        app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///test.db'
+    else:
+        app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///manul.db'
     app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
     db.init_app(app)
-    db.create_engine('sqlite:///manul.db')
+    if test:
+        db.create_engine('sqlite:///manul.db')
+    else:
+        db.create_engine('sqlite:///test.db')
 
     app.app_context().push()
     core.auth.login_manager.init_app(app)
@@ -38,8 +45,11 @@ def create_app():
 
 if __name__ == '__main__':
     if 'test' in sys.argv:
+        # Hack for mac os
+        open('test.db', 'w').close()
         suite = unittest.defaultTestLoader.discover('tests')
         unittest.TextTestRunner().run(suite)
+        os.unlink('test.db')
     elif 'createdb' in sys.argv:
         rest_app = create_app()
         db.create_all()
