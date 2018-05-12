@@ -14,10 +14,16 @@ class PasswordCheckTestCase(BaseTestCase):
         db.session.commit()
 
     def test_password_match(self):
-        self.assertTrue(check_user_password(self.username, self.password))
+        logged_in, user = check_user_password(self.username, self.password)
+        self.assertTrue(logged_in)
+        self.assertEqual(user, self.user)
 
     def test_password_not_match(self):
-        self.assertFalse(check_user_password(self.username, 'not a password'))
+        logged_in, user = check_user_password(self.username, 'not a password')
+        self.assertFalse(logged_in)
+        self.assertIsNone(user)
 
     def test_for_not_existing_user(self):
-        self.assertFalse(check_user_password('not a user', self.password))
+        logged_in, user = check_user_password('not a user', self.password)
+        self.assertFalse(logged_in)
+        self.assertIsNone(user)
