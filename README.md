@@ -1,5 +1,7 @@
 [![Build Status](https://travis-ci.org/gonczor/manul.svg?branch=master)](https://travis-ci.org/gonczor/manul)
 
+[![License: GPL v3](https://img.shields.io/badge/License-GPL%20v3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
+
 # Manul
 
 This is technology demonstrator using Flask to create restful web service with Angular on frontend. Apart from being cool it solves problem of providing data for intelligent home. Technologies used are listed below. I do not expect to know everything about them but I do expect contributors to be willing to learn at least some of the following:
@@ -40,9 +42,9 @@ $ flake8 --config=.flake8 .
 ## Structure
 
 * api - backend for REST api serving data,
-* app - core app for serving data for browsers, rendering templates and so on,
+* core - core core for serving data for browsers, rendering templates and so on,
 * db - database handling stuff (setup, models, migrations etc.)
-* helpers - useful bash scripts,
+* commands - useful bash scripts,
 * static - css, js and coffeescripts,
 * templates - html templates used by Flask,
 * tests - backend unittests.
