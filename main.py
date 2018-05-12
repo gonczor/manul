@@ -4,18 +4,20 @@ import unittest
 from flask import Flask
 from flask_restful import Api
 
-from app.urls import register_urls as register_app_urls
 from api.urls import register_urls as register_api_urls
+from core.urls import register_urls as register_app_urls
 
 from commands import createsuperuser
 from db import db
+import setup
 
 
 def create_app():
     # Hack to create auth
-    import app.auth  # flake8: noqa
+    import core.auth  # flake8: noqa
     # Create objects used in project
     app = Flask(__name__)
+    app.config.update(SECRET_KEY=setup.secret_key)
     api = Api(app)
 
     # Register urls
@@ -28,6 +30,8 @@ def create_app():
     db.create_engine('sqlite:///manul.db')
 
     app.app_context().push()
+    core.auth.login_manager.init_app(app)
+    core.auth.login_manager.login_view = 'login'
     return app
 
 

@@ -1,5 +1,7 @@
 from flask import render_template, redirect, url_for, request, abort
-from flask_login import login_required, logout_user
+from flask_login import login_required, logout_user, login_user
+
+from utils.password import check_user_password
 
 
 def hello_world():
@@ -10,9 +12,14 @@ def login():
     if request.method == 'GET':
         return render_template('login.html')
     elif request.method == 'POST':
-        pass
+        match, user = check_user_password(request.form['username'], request.form['password'])
+        if match:
+            login_user(user)
+            return redirect(url_for('admin_panel'))
+        else:
+            return abort(401)
     else:
-        abort(400)
+        return abort(400)
 
 
 def logout():

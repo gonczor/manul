@@ -3,7 +3,7 @@ import datetime
 from flask import g, jsonify
 from flask_restful import Resource
 
-from app.auth import auth
+from api.auth import auth
 
 
 class ServerTime(Resource):
