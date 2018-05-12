@@ -40,7 +40,7 @@ $ flake8 --config=.flake8 .
 ## Structure
 
 * api - backend for REST api serving data,
-* app - core app for serving data for browsers, rendering templates and so on,
+* core - core core for serving data for browsers, rendering templates and so on,
 * db - database handling stuff (setup, models, migrations etc.)
 * commands - useful bash scripts,
 * static - css, js and coffeescripts,
