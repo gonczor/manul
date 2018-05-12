@@ -9,6 +9,8 @@ def hello_world():
 def login():
     if request.method == 'GET':
         return render_template('login.html')
+    elif request.method == 'POST':
+        pass
     else:
         abort(400)
 
