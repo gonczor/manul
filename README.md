@@ -1,6 +1,4 @@
-[![Build Status](https://travis-ci.org/gonczor/manul.svg?branch=master)](https://travis-ci.org/gonczor/manul)
-
-[![License: GPL v3](https://img.shields.io/badge/License-GPL%20v3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
+[![Build Status](https://travis-ci.org/gonczor/manul.svg?branch=master)](https://travis-ci.org/gonczor/manul)   [![License: GPL v3](https://img.shields.io/badge/License-GPL%20v3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
 
 # Manul
 
@@ -36,7 +34,7 @@ This is technology demonstrator using Flask to create restful web service with A
 Before you create a pull request please ensure that you changes pass tests. This means both unittests and style tests. Currently this is only implemented for python and PEP-8. To do this run:
 ```bash
 $ python main.py test
-$ flake8 --config=.flake8 .
+$ flake8 --config=.flake8
 ```
 
 ## Structure
@@ -48,3 +46,7 @@ $ flake8 --config=.flake8 .
 * static - css, js and coffeescripts,
 * templates - html templates used by Flask,
 * tests - backend unittests.
+
+## Upgrade policy
+
+There are very few things I hate more than carelessness while developing and technical debt is an excellent example. Therefore I want latest stable versions of packages in the project to be used. I do see, however, the need of stability and focus on other aspects of the project than having latest version of libraries for its own sake. Therefore, latest version is tracked regularly and create tickets for upgrades that should go together with normal flow.
